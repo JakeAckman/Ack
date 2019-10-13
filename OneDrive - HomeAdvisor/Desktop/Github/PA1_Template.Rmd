@@ -5,7 +5,7 @@ date: "10/12/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE, echo = TRUE}
+```{r setup, echo = TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyr)
@@ -21,9 +21,11 @@ library(formattable)
 library(data.table)
 library(lubridate)
 
-setwd("C:/Users/jackman/OneDrive - HomeAdvisor/Desktop/R Files/Reproducible Research/Week 2")
+fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+download.file(fileUrl, destfile = "repdata.zip")
+unzip("repdata.zip",exdir = "data")
 
-act <- read.csv("./activity.csv")
+act <- read.csv("data/activity.csv")
 
 ```
 

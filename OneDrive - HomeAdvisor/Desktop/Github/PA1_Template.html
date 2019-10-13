@@ -370,6 +370,104 @@ summary {
 </div>
 
 
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidyr)
+library(ggplot2)
+library(scales)
+library(haven)
+library(foreign)
+library(plyr)</code></pre>
+<pre><code>## -------------------------------------------------------------------------</code></pre>
+<pre><code>## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)</code></pre>
+<pre><code>## -------------------------------------------------------------------------</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v tibble  2.1.3     v purrr   0.3.2
+## v readr   1.3.1     v stringr 1.4.0
+## v tibble  2.1.3     v forcats 0.4.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------------------------------------------------------------ tidyverse_conflicts() --
+## x plyr::arrange()     masks dplyr::arrange()
+## x readr::col_factor() masks scales::col_factor()
+## x purrr::compact()    masks plyr::compact()
+## x plyr::count()       masks dplyr::count()
+## x purrr::discard()    masks scales::discard()
+## x plyr::failwith()    masks dplyr::failwith()
+## x dplyr::filter()     masks stats::filter()
+## x plyr::id()          masks dplyr::id()
+## x dplyr::lag()        masks stats::lag()
+## x plyr::mutate()      masks dplyr::mutate()
+## x plyr::rename()      masks dplyr::rename()
+## x plyr::summarise()   masks dplyr::summarise()
+## x plyr::summarize()   masks dplyr::summarize()</code></pre>
+<pre class="r"><code>library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:plyr&#39;:
+## 
+##     arrange, mutate, rename, summarise</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>library(knitr)
+library(formattable)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;formattable&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plotly&#39;:
+## 
+##     style</code></pre>
+<pre><code>## The following objects are masked from &#39;package:scales&#39;:
+## 
+##     comma, percent, scientific</code></pre>
+<pre class="r"><code>library(data.table)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;data.table&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     transpose</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     between, first, last</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     hour, isoweek, mday, minute, month, quarter, second, wday,
+##     week, yday, year</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     here</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>fileUrl &lt;- &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;
+download.file(fileUrl, destfile = &quot;repdata.zip&quot;)
+unzip(&quot;repdata.zip&quot;,exdir = &quot;data&quot;)
+
+act &lt;- read.csv(&quot;data/activity.csv&quot;)</code></pre>
 <div id="activity-data" class="section level2">
 <h2>Activity Data</h2>
 <p>Read in the data above to act dataframe. Then below we:</p>
