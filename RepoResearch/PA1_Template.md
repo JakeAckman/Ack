@@ -5,7 +5,7 @@ date: "10/12/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE, echo = FALSE}
+```{r include=FALSE, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyr)
@@ -45,7 +45,7 @@ Read in the data above to act dataframe. Then below we:
 
 -Identify that 835 is the five minute time interval with the highest average
 
-```{r }
+```{r}
 steps_per_day <- act %>% group_by(date) %>% dplyr::summarise(steps_per_day = sum(steps, na.rm = TRUE))
 
 steps_per_day
@@ -58,7 +58,7 @@ act %>% filter(!is.na(steps)) %>% dplyr::group_by(interval) %>% dplyr::summarise
 
 ```
 
-## Impute NAs
+## ImputeNAs
 
 Get rid of those dang NAs! First show the total number of NAs. Then create a new variable so that the mean replaces any NAs. Add a histogram of the imputed mean, and then show a table of the 
 
@@ -75,7 +75,7 @@ act_imputed %>% dplyr::group_by(date) %>% dplyr::summarise(avg = mean(impute, na
 ```
 
 
-## Weekday Analysis
+## WeekdayAnalysis
 
 Created a factor variable called weekday to show if it's a weekday or the weekend. Graphed the imputed mean per time interval for Weekdays vs. Weekends.
 
@@ -91,4 +91,3 @@ ggplot(act_weekday, aes(interval, impute)) + geom_line(color = "blue") + facet_g
 
 
 ```
-
