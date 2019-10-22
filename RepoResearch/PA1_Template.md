@@ -5,7 +5,7 @@ date: "10/12/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE, echo = FALSE}
+```{r include=FALSE, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyr)
@@ -31,7 +31,7 @@ act <- read.csv("data/activity.csv")
 
 ```
 
-## ActivityData
+## Activity Data
 
 Read in the data above to act dataframe. Then below we:
 
@@ -45,7 +45,7 @@ Read in the data above to act dataframe. Then below we:
 
 -Identify that 835 is the five minute time interval with the highest average
 
-```{r }
+```{r}
 steps_per_day <- act %>% group_by(date) %>% dplyr::summarise(steps_per_day = sum(steps, na.rm = TRUE))
 
 steps_per_day
@@ -91,4 +91,3 @@ ggplot(act_weekday, aes(interval, impute)) + geom_line(color = "blue") + facet_g
 
 
 ```
-
