@@ -31,7 +31,7 @@ act <- read.csv("data/activity.csv")
 
 ```
 
-## Activity Data
+## ActivityData
 
 Read in the data above to act dataframe. Then below we:
 
@@ -58,7 +58,7 @@ act %>% filter(!is.na(steps)) %>% dplyr::group_by(interval) %>% dplyr::summarise
 
 ```
 
-## Impute NAs
+## ImputeNAs
 
 Get rid of those dang NAs! First show the total number of NAs. Then create a new variable so that the mean replaces any NAs. Add a histogram of the imputed mean, and then show a table of the 
 
@@ -75,7 +75,7 @@ act_imputed %>% dplyr::group_by(date) %>% dplyr::summarise(avg = mean(impute, na
 ```
 
 
-## Weekday Analysis
+## WeekdayAnalysis
 
 Created a factor variable called weekday to show if it's a weekday or the weekend. Graphed the imputed mean per time interval for Weekdays vs. Weekends.
 
